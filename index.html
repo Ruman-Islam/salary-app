@@ -17,20 +17,27 @@
     <header class="header">
         <h1>Money Saving Expert</h1>
     </header>
+
     <main>
+        <!-- Banner & Calculation Part -->
         <section class="container">
+            <!-- Banner Image-->
             <div class="content-left">
                 <img src="./assets/images/cover.jpg" alt="saving image">
             </div>
+            <!-- Calculation Part -->
             <div class="content-right">
+                <!-- Income Input Area -->
                 <div class="income-area">
                     <h3>Income</h3>
                     <label for="income-input">Income:</label>
                     <input id="income-input" type="text">
                     <p id="income-error-field"></p>
                 </div>
+                <!-- Expenses Input Areas -->
                 <div class="expenses-area">
                     <h3>Expenses</h3>
+                    <!-- Food -->
                     <div class="expenses-input-area">
                         <div class="expenses-label">
                             <label for="food-input">Food:</label>
@@ -40,6 +47,7 @@
                         </div>
                         <p id="food-error-field"></p>
                     </div>
+                    <!-- Rent -->
                     <div class="expenses-input-area">
                         <div class="expenses-label">
                             <label for="rent-input">Rent:</label>
@@ -49,23 +57,25 @@
                         </div>
                         <p id="rent-error-field"></p>
                     </div>
+                    <!-- Clothes -->
                     <div>
                         <label for="clothes-input">Clothes:</label>
                         <input id="clothes-input" type="text">
                         <p id="clothes-error-field"></p>
                     </div>
                 </div>
+                <!-- Expenses Calculation Area -->
                 <div class="expenses-calculate-area">
                     <button id="calculate-button" style="margin-top: 5px;">Calculate</button>
                     <h3>Total Expenses: <span id="total-expenses"></span></h3>
                     <h3>Balance: <span id="balance"></span></h3>
                 </div>
+                <!-- Savings Area -->
                 <div class="savings-area">
                     <label for="savings-input">Save:</label>
                     <input id="savings-input" type="text" style="width: 70px;">
                     <span>%</span>
                     <button id="savings-button">Save</button>
-                    <p></p>
                     <h3>Saving Amount: <span id="savings-amount"></span></h3>
                     <h3>Remaining Balance: <span id="remaining-balance"></span></h3>
                 </div>

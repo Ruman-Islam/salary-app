@@ -49,6 +49,16 @@ calculateButton.addEventListener('click', function () {
 
 
 savingsButton.addEventListener('click', function () {
+    const incomeAmount = parseFloat(incomeInput.value);
     const savingsAmount = parseFloat(savingsInput.value);
-
+    const totalBalance = parseFloat(balance.innerText);
+    const savings = savingsAmount / 100;
+    const totalSavings = incomeAmount * savings;
+    if (totalBalance < totalSavings) {
+        document.querySelector('#savings-amount').innerText = totalSavings;
+        document.querySelector('#remaining-balance').innerText = 'Not enough money to save';
+    } else {
+        document.querySelector('#savings-amount').innerText = totalSavings;
+        document.querySelector('#remaining-balance').innerText = totalBalance - totalSavings;
+    }
 });

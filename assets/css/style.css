@@ -1,9 +1,23 @@
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
 
+/* Common Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root{
+    --primary-color: #86C6F4;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 body {
@@ -24,7 +38,7 @@ p {
 }
 
 button {
-    background-color: #86C6F4;
+    background-color: var(--primary-color);
     border: 0;
     padding: 10px 40px;
     border-radius: 5px;
@@ -34,6 +48,7 @@ button {
     cursor: pointer;
 }
 
+/* All inputs */
 input {
     padding: 10px 10px;
     font-size: 16px;
@@ -42,23 +57,23 @@ input {
     background-color: lightgray;
 }
 
+
+/* Header Title */
 .header h1 {
     text-align: center;
     margin: 50px 0;
+    color: var(--primary-color);
 }
 
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-}
+
+/* Content left image section */
 .container .content-left {
     flex-basis: 100%;
     flex-grow: 1;
     border-radius: 10px;
 }
+
+/* Content left calculation section */
 .container .content-right {
     flex-basis: 100%;
     flex-grow: 1;
@@ -70,10 +85,11 @@ input {
     border-radius: 10px;
 }
 
+
+/* All inputs and labels centralized & styles */
 .income-area, .expenses-area, .expenses-calculate-area, .savings-area {
     text-align: center;
 }
-
 .expenses-area {
     display: flex;
     flex-direction: column;
@@ -90,6 +106,8 @@ input {
     display: inline-block;
 }
 
+
+/* Desktop Version Responsive */
 @media (min-width: 920px) {
     .container .content-left{
         flex-basis: 60%;
