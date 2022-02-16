@@ -26,7 +26,7 @@
                 <div class="income-area">
                     <h3>Income</h3>
                     <label for="income-input">Income:</label>
-                    <input id="income-input" value="10000" type="text">
+                    <input id="income-input" type="text">
                     <p></p>
                 </div>
                 <div class="expenses-area">
@@ -36,7 +36,7 @@
                             <label for="food-input">Food:</label>
                         </div>
                         <div class="expenses-input">
-                            <input id="food-input" value="3000" type="text">
+                            <input id="food-input" type="text">
                         </div>
                         <p></p>
                     </div>
@@ -45,24 +45,24 @@
                             <label for="rent-input">Rent:</label>
                         </div>
                         <div class="expenses-input">
-                            <input id="rent-input" value="2000" type="text" style="margin: 5px 0;">
+                            <input id="rent-input" type="text" style="margin: 5px 0;">
                         </div>
                         <p></p>
                     </div>
                     <div>
                         <label for="clothes-input">Clothes:</label>
-                        <input id="clothes-input" value="500" type="text">
+                        <input id="clothes-input" type="text">
                         <p></p>
                     </div>
                 </div>
                 <div class="expenses-calculate-area">
-                    <button style="margin-top: 5px;">Calculate</button>
-                    <h3>Total Expenses: 5500</h3>
-                    <h3>Balance: 4500</h3>
+                    <button id="calculate" style="margin-top: 5px;">Calculate</button>
+                    <h3>Total Expenses: <span id="total-expenses"></span></h3>
+                    <h3>Balance: <span id="balance"></span></h3>
                 </div>
                 <div class="savings-area">
                     <label for="savings-input">Save:</label>
-                    <input id="savings-input" value="20" type="text" style="width: 70px;">
+                    <input id="savings-input" type="text" style="width: 70px;">
                     <span>%</span>
                     <button>Save</button>
                     <p></p>
