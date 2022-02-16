@@ -27,7 +27,7 @@
                     <h3>Income</h3>
                     <label for="income-input">Income:</label>
                     <input id="income-input" type="text">
-                    <p></p>
+                    <p id="income-error-field"></p>
                 </div>
                 <div class="expenses-area">
                     <h3>Expenses</h3>
@@ -38,7 +38,7 @@
                         <div class="expenses-input">
                             <input id="food-input" type="text">
                         </div>
-                        <p></p>
+                        <p id="food-error-field"></p>
                     </div>
                     <div class="expenses-input-area">
                         <div class="expenses-label">
@@ -47,16 +47,16 @@
                         <div class="expenses-input">
                             <input id="rent-input" type="text" style="margin: 5px 0;">
                         </div>
-                        <p></p>
+                        <p id="rent-error-field"></p>
                     </div>
                     <div>
                         <label for="clothes-input">Clothes:</label>
                         <input id="clothes-input" type="text">
-                        <p></p>
+                        <p id="clothes-error-field"></p>
                     </div>
                 </div>
                 <div class="expenses-calculate-area">
-                    <button id="calculate" style="margin-top: 5px;">Calculate</button>
+                    <button id="calculate-button" style="margin-top: 5px;">Calculate</button>
                     <h3>Total Expenses: <span id="total-expenses"></span></h3>
                     <h3>Balance: <span id="balance"></span></h3>
                 </div>
@@ -64,10 +64,10 @@
                     <label for="savings-input">Save:</label>
                     <input id="savings-input" type="text" style="width: 70px;">
                     <span>%</span>
-                    <button>Save</button>
+                    <button id="savings-button">Save</button>
                     <p></p>
-                    <h3>Saving Amount: 2000</h3>
-                    <h3>Remaining Balance: 2500</h3>
+                    <h3>Saving Amount: <span id="savings-amount"></span></h3>
+                    <h3>Remaining Balance: <span id="remaining-balance"></span></h3>
                 </div>
             </div>
         </section>

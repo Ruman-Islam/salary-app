@@ -19,6 +19,10 @@ h3{
     margin: 10px;
 }
 
+p {
+    color: red;
+}
+
 button {
     background-color: #86C6F4;
     border: 0;
