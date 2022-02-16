@@ -5,11 +5,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Master</title>
+    <title>Money Saving Expert</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Tailwind CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
 <body>
-    <h1>Welcome</h1>
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Money Saving Expert</h1>
+    </header>
+    <main>
+        <section class="container">
+            <div class="content-left">
+                <img src="./assets/images/cover.jpg" alt="saving image">
+            </div>
+            <div class="content-right">
+                <div class="income-area">
+                    <h3>Income</h3>
+                    <label for="income-input">Income:</label>
+                    <input id="income-input" value="10000" type="text">
+                    <p></p>
+                </div>
+                <div class="expenses-area">
+                    <h3>Expenses</h3>
+                    <div class="expenses-input-area">
+                        <div class="expenses-label">
+                            <label for="food-input">Food:</label>
+                        </div>
+                        <div class="expenses-input">
+                            <input id="food-input" value="3000" type="text">
+                        </div>
+                        <p></p>
+                    </div>
+                    <div class="expenses-input-area">
+                        <div class="expenses-label">
+                            <label for="rent-input">Rent:</label>
+                        </div>
+                        <div class="expenses-input">
+                            <input id="rent-input" value="2000" type="text" style="margin: 5px 0;">
+                        </div>
+                        <p></p>
+                    </div>
+                    <div>
+                        <label for="clothes-input">Clothes:</label>
+                        <input id="clothes-input" value="500" type="text">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="expenses-calculate-area">
+                    <button style="margin-top: 5px;">Calculate</button>
+                    <h3>Total Expenses: 5500</h3>
+                    <h3>Balance: 4500</h3>
+                </div>
+                <div class="savings-area">
+                    <label for="savings-input">Save:</label>
+                    <input id="savings-input" value="20" type="text" style="width: 70px;">
+                    <span>%</span>
+                    <button>Save</button>
+                    <p></p>
+                    <h3>Saving Amount: 2000</h3>
+                    <h3>Remaining Balance: 2500</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Script File -->
+    <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

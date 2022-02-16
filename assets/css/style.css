@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+h3{
+    margin: 10px;
+}
+
+button {
+    background-color: #86C6F4;
+    border: 0;
+    padding: 10px 40px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.header h1 {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.container .content-left {
+    /* height: 100%; */
+    flex-basis: 100%;
+    flex-grow: 1;
+    border-radius: 10px;
+}
+.container .content-right {
+    /* height: 100%; */
+    flex-basis: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 1rem; */
+    background-color: rgba(230, 230, 230, 0.377);
+    border-radius: 10px;
+}
+
+.income-area, .expenses-area, .expenses-calculate-area, .savings-area {
+    text-align: center;
+}
+
+.expenses-area {
+    display: flex;
+    flex-direction: column;
+}
+.expenses-input-area{
+    width: 305px;
+}
+.expenses-label{
+    width: 50px;
+    display: inline-block;
+}
+.expenses-input {
+    width: 200px;
+    display: inline-block;
+}
+
+@media (min-width: 920px) {
+    .container .content-left{
+        flex-basis: 60%;
+        margin-right: 50px;
+    }
+    .container .content-right{
+        flex-basis: 30%;
+    }
+}
