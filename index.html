@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Saving Expert</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Tailwind CDN -->
@@ -13,7 +15,7 @@
 </head>
 
 <body>
-    <!-- Header Section -->
+    <!--........ Header Section .............-->
     <header class="header">
         <h1>Money Saving Expert</h1>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dollar-icon" fill="none" viewBox="0 0 24 24"
@@ -22,82 +24,87 @@
                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
     </header>
+    <!-- .......................... -->
 
     <main>
-        <!-- Banner & Calculation Part -->
+        <!--..... Banner & Calculation Part..... -->
         <section class="container">
-            <!-- Banner Image-->
+            <!--..... Banner Image.....-->
             <div class="content-left">
                 <img src="./assets/images/cover.jpg" alt="saving image">
             </div>
-            <!-- Calculation Part -->
+            <!-- ............... -->
+
+            <!-- ....Calculation Part..... -->
             <div class="content-right">
                 <!-- Income Input Area -->
                 <div class="income-area">
                     <h3>Income</h3>
-                    <label for="income-input">Income:</label>
-                    <input id="income-input" type="text">
-                    <p id="income-error-field"></p>
+                    <label for="income-input">Income: </label>
+                    <input id="income-input" type="text" placeholder="amount">
+                    <small id="income-error-field"></small>
                 </div>
+                <!-- .................. -->
+
                 <!-- Expenses Input Areas -->
                 <div class="expenses-area">
                     <h3>Expenses</h3>
-                    <!-- Food -->
+                    <!-- Food Input Area-->
                     <div class="expenses-input-area">
                         <div class="expenses-label">
-                            <label for="food-input">Food:</label>
+                            <label for="food-input">Food: </label>
                         </div>
                         <div class="expenses-input">
-                            <input id="food-input" type="text">
+                            <input id="food-input" type="text" placeholder="amount">
                         </div>
-                        <p id="food-error-field"></p>
+                        <small id="food-error-field"></small>
                     </div>
-                    <!-- Rent -->
+                    <!-- .................... -->
+
+                    <!-- Rent Input Area-->
                     <div class="expenses-input-area">
                         <div class="expenses-label">
-                            <label for="rent-input">Rent:</label>
+                            <label for="rent-input">Rent: </label>
                         </div>
                         <div class="expenses-input">
-                            <input id="rent-input" type="text" style="margin: 5px 0;">
+                            <input id="rent-input" type="text" style="margin: 5px 0;" placeholder="amount">
                         </div>
-                        <p id="rent-error-field"></p>
+                        <small id="rent-error-field"></small>
                     </div>
-                    <!-- Clothes -->
+                    <!-- ................... -->
+
+                    <!-- Clothes Input Area-->
                     <div>
-                        <label for="clothes-input">Clothes:</label>
-                        <input id="clothes-input" type="text">
-                        <p id="clothes-error-field"></p>
+                        <label for="clothes-input">Clothes: </label>
+                        <input id="clothes-input" type="text" placeholder="amount">
+                        <small id="clothes-error-field"></small>
                     </div>
+                    <!-- .................. -->
                 </div>
+                <!-- .......................... -->
+
                 <!-- Expenses Calculation Area -->
                 <div class="expenses-calculate-area">
                     <button onclick="expenseCalculator()" style="margin-top: 5px;">Calculate</button>
-                    <h3>Total Expenses: <span id="total-expenses">0</span></h3>
-                    <h3>Balance: <span id="balance">0</span></h3>
+                    <h3>Total Expenses: <small id="total-expenses">0</small></h3>
+                    <h3>Balance: <small id="balance">0</small></h3>
                 </div>
                 <!-- Savings Area -->
                 <div class="savings-area">
-                    <label for="savings-input">Save:</label>
+                    <label for="savings-input">Save: </label>
                     <input id="savings-input" type="text" style="width: 70px;">
                     <span>%</span>
                     <button onclick="savingsCalculator()">Save</button>
-                    <p id="savings-error-field"></p>
-                    <h3>Saving Amount: <span id="savings-amount">0</span></h3>
-                    <h3>Remaining Balance: <span id="remaining-balance">0</span></h3>
+                    <small id="savings-error-field"></small>
+                    <h3>Saving Amount: <small id="savings-amount">0</small></h3>
+                    <h3>Remaining Balance: <small id="remaining-balance">0</small></h3>
                 </div>
             </div>
+            <!-- ........................... -->
         </section>
     </main>
-
+    <!-- Error Absorber -->
     <p id="error-absorber" style="display: none;"></p>
-
-
-
-
-
-
-
-
 
     <!-- Script File -->
     <script src="./assets/js/app.js"></script>
