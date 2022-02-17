@@ -55,6 +55,9 @@ input {
     border-radius: 5px;
     background-color: #d1d1d16c;
 }
+input:focus { 
+    outline: none !important;
+ }
 /* ...................... */
 /* ...................... */
 
