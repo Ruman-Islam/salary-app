@@ -66,7 +66,7 @@
                 </div>
                 <!-- Expenses Calculation Area -->
                 <div class="expenses-calculate-area">
-                    <button id="calculate-button" style="margin-top: 5px;">Calculate</button>
+                    <button onclick="expenseCalculator()" style="margin-top: 5px;">Calculate</button>
                     <h3>Total Expenses: <span id="total-expenses">0</span></h3>
                     <h3>Balance: <span id="balance">0</span></h3>
                 </div>
@@ -75,7 +75,7 @@
                     <label for="savings-input">Save:</label>
                     <input id="savings-input" type="text" style="width: 70px;">
                     <span>%</span>
-                    <button id="savings-button">Save</button>
+                    <button onclick="savingsCalculator()">Save</button>
                     <p id="savings-error-field"></p>
                     <h3>Saving Amount: <span id="savings-amount">0</span></h3>
                     <h3>Remaining Balance: <span id="remaining-balance">0</span></h3>
