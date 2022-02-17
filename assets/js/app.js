@@ -54,11 +54,27 @@ savingsButton.addEventListener('click', function () {
     const totalBalance = parseFloat(balance.innerText);
     const savings = savingsAmount / 100;
     const totalSavings = incomeAmount * savings;
-    if (totalBalance < totalSavings) {
-        document.querySelector('#savings-amount').innerText = totalSavings;
-        document.querySelector('#remaining-balance').innerText = 'Not enough money to save';
+    if (isNaN(savingsAmount) || savingsAmount < 0) {
+        document.querySelector('#savings-error-field').innerText = 'Enter any number';
+    } else if (isNaN(incomeAmount) || incomeAmount < 0) {
+        document.querySelector('#income-error-field').innerText = 'Enter any number';
     } else {
-        document.querySelector('#savings-amount').innerText = totalSavings;
-        document.querySelector('#remaining-balance').innerText = totalBalance - totalSavings;
+        if (totalBalance < totalSavings) {
+            if (totalBalance === 0) {
+                document.querySelector('#savings-amount').innerText = totalSavings;
+                document.querySelector('#remaining-balance').innerText = incomeAmount - totalSavings;
+                document.querySelector('#income-error-field').innerText = '';
+                document.querySelector('#savings-error-field').innerText = '';
+            } else {
+                document.querySelector('#savings-amount').innerText = totalSavings;
+                document.querySelector('#remaining-balance').innerText = 'Not enough money to save';
+                document.querySelector('#income-error-field').innerText = '';
+            }
+        } else {
+            document.querySelector('#savings-amount').innerText = totalSavings;
+            document.querySelector('#remaining-balance').innerText = totalBalance - totalSavings;
+            document.querySelector('#savings-error-field').innerText = '';
+            document.querySelector('#income-error-field').innerText = '';
+        }
     }
 });
