@@ -103,13 +103,17 @@ function savingsCalculator() {
                 setInnerTextEmpty('#income-error-field', '#savings-error-field', '#error-absorber', '#error-absorber');
             } else {
                 setInnerText('#savings-amount', totalSavings);
-                setInnerText('#remaining-balance', 'Not enough money');
+                setInnerText('#remaining-balance', 'Insufficient amount');
                 setInnerTextEmpty('#income-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
             }
         } else {
             setInnerText('#savings-amount', totalSavings);
-            setInnerText('#remaining-balance', totalBalance - totalSavings);
-            setInnerTextEmpty('#savings-error-field', '#income-error-field', '#error-absorber', '#error-absorber');
+            if (isNaN(totalBalance)) {
+                setInnerText('#remaining-balance', 'Insufficient amount');
+            } else {
+                setInnerText('#remaining-balance', totalBalance - totalSavings);
+                setInnerTextEmpty('#savings-error-field', '#income-error-field', '#error-absorber', '#error-absorber');
+            }
         }
     }
 }
