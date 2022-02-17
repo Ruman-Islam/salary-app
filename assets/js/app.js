@@ -1,77 +1,78 @@
-const totalExpensesField = document.querySelector('#total-expenses');
-const balance = document.querySelector('#balance');
-
-function expenseCalculator() {
-    const incomeAmount = parseBlender('#income');
-    const foodAmount = parseBlender('#food');
-    const rentAmount = parseBlender('#rent');
-    const clothesAmount = parseBlender('#clothes');
-    if (isNaN(incomeAmount) || incomeAmount < 0) {
-        ExpenseErrorHandler('#income');
-    } else if (isNaN(foodAmount) || foodAmount < 0) {
-        ExpenseErrorHandler('#food');
-    } else if (isNaN(rentAmount) || rentAmount < 0) {
-        ExpenseErrorHandler('#rent');
-    } else if (isNaN(clothesAmount) || clothesAmount < 0) {
-        ExpenseErrorHandler('#clothes');
-    } else {
-        const totalExpenses = foodAmount + rentAmount + clothesAmount;
-        const remainingBalance = incomeAmount - totalExpenses;
-        if (totalExpenses > incomeAmount) {
-            balance.innerText = 'Over expenses';
-        } else {
-            balance.innerText = remainingBalance;
-        }
-        totalExpensesField.innerText = totalExpenses;
-        document.querySelector('#income-error-field').innerText = '';
-        document.querySelector('#food-error-field').innerText = '';
-        document.querySelector('#rent-error-field').innerText = '';
-        document.querySelector('#clothes-error-field').innerText = '';
-    }
-}
-
-// expense error handle function
-function ExpenseErrorHandler(errorName) {
-    document.querySelector(errorName + '-error-field').innerText = 'Enter any number';
-    totalExpensesField.innerText = '';
-    balance.innerText = '';
-}
-
+// Utility functions Start //
 // parseFloat blending function
-function parseBlender(inputName) {
-    const inputField = document.querySelector(inputName + '-input');
+function parseBlender(id) {
+    const inputField = document.querySelector(id);
     return parseFloat(inputField.value);
 }
 
+// Function of empty inner texts
+function innerTextEmptyString(idOne, idTwo, idThree, idFour) {
+    document.querySelector(idOne).innerText = '';
+    document.querySelector(idTwo).innerText = '';
+    document.querySelector(idThree).innerText = '';
+    document.querySelector(idFour).innerText = '';
+}
+
+// Function of set any kind of value as inner text
+function setInnerText(id, value) {
+    document.querySelector(id).innerText = value;
+}
+// Utility functions End //
 
 
+// Total expenses calculation
+function expenseCalculator() {
+    const incomeAmount = parseBlender('#income-input');
+    const foodAmount = parseBlender('#food-input');
+    const rentAmount = parseBlender('#rent-input');
+    const clothesAmount = parseBlender('#clothes-input');
+    if (isNaN(incomeAmount) || incomeAmount < 0) {
+        setInnerText('#income-error-field', 'Enter any number');
+    } else if (isNaN(foodAmount) || foodAmount < 0) {
+        setInnerText('#food-error-field', 'Enter any number');
+    } else if (isNaN(rentAmount) || rentAmount < 0) {
+        setInnerText('#rent-error-field', 'Enter any number');
+    } else if (isNaN(clothesAmount) || clothesAmount < 0) {
+        setInnerText('#clothes-error-field', 'Enter any number');
+    } else {
+        const totalExpenses = foodAmount + rentAmount + clothesAmount;
+        if (totalExpenses > incomeAmount) {
+            setInnerText('#balance', 'Over expenses');
+        } else {
+            setInnerText('#balance', incomeAmount - totalExpenses);
+        }
+        setInnerText('#total-expenses', totalExpenses);
+        innerTextEmptyString('#income-error-field', '#food-error-field', '#rent-error-field', '#clothes-error-field');
+    }
+}
+
+// Savings Calculation
 function savingsCalculator() {
-    const incomeAmount = parseBlender('#income');
-    const savingsAmount = parseBlender('#savings');
+    const incomeAmount = parseBlender('#income-input');
+    const savingsAmount = parseBlender('#savings-input');
     const totalBalance = parseFloat(balance.innerText);
     const totalSavings = incomeAmount * (savingsAmount / 100);
     if (isNaN(savingsAmount) || savingsAmount < 0) {
-        document.querySelector('#savings-error-field').innerText = 'Enter any number';
+        setInnerText('#savings-error-field', 'Enter any number');
     } else if (isNaN(incomeAmount) || incomeAmount < 0) {
-        document.querySelector('#savings-error-field').innerText = '';
-        document.querySelector('#income-error-field').innerText = 'Enter any number';
+        setInnerText('#income-error-field', 'Enter any number');
+        innerTextEmptyString('#savings-error-field', '#total-expenses', '#balance', '#error-absorber');
     } else {
         if (totalBalance < totalSavings) {
             if (totalBalance === 0) {
-                document.querySelector('#savings-amount').innerText = totalSavings;
-                document.querySelector('#remaining-balance').innerText = incomeAmount - totalSavings;
-                document.querySelector('#income-error-field').innerText = '';
-                document.querySelector('#savings-error-field').innerText = '';
+                setInnerText('#balance', incomeAmount);
+                setInnerText('#savings-amount', totalSavings);
+                setInnerText('#remaining-balance', incomeAmount - totalSavings);
+                innerTextEmptyString('#income-error-field', '#savings-error-field', '#error-absorber', '#error-absorber');
             } else {
-                document.querySelector('#savings-amount').innerText = totalSavings;
-                document.querySelector('#remaining-balance').innerText = 'Not enough money to save';
-                document.querySelector('#income-error-field').innerText = '';
+                setInnerText('#savings-amount', totalSavings);
+                setInnerText('#remaining-balance', 'Not enough money to save');
+                innerTextEmptyString('#income-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
             }
         } else {
-            document.querySelector('#savings-amount').innerText = totalSavings;
-            document.querySelector('#remaining-balance').innerText = totalBalance - totalSavings;
-            document.querySelector('#savings-error-field').innerText = '';
-            document.querySelector('#income-error-field').innerText = '';
+            setInnerText('#savings-amount', totalSavings);
+            setInnerText('#remaining-balance', totalBalance - totalSavings);
+            innerTextEmptyString('#savings-error-field', '#income-error-field', '#error-absorber', '#error-absorber');
         }
     }
 }
