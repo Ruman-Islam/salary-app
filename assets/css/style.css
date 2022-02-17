@@ -56,7 +56,7 @@ input {
     background-color: #d1d1d16c;
 }
 input:focus { 
-    outline: none !important;
+    outline: var(--primary-color) 1px solid;
  }
 /* ...................... */
 /* ...................... */
