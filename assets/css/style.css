@@ -59,12 +59,21 @@ input {
 
 
 /* Header Title */
+.header {
+    display: flex;
+    justify-content: center;
+}
 .header h1 {
     text-align: center;
     margin: 50px 0;
     color: var(--primary-color);
 }
 
+/* Doller icon */
+.dollar-icon {
+    width: 50px;
+    color: gold;
+}
 
 /* Content left image section */
 .container .content-left {

@@ -6,7 +6,7 @@ function parseBlender(id) {
 }
 
 // Function of empty inner texts
-function innerTextEmptyString(idOne, idTwo, idThree, idFour) {
+function setInnerTextEmpty(idOne, idTwo, idThree, idFour) {
     document.querySelector(idOne).innerText = '';
     document.querySelector(idTwo).innerText = '';
     document.querySelector(idThree).innerText = '';
@@ -42,7 +42,7 @@ function expenseCalculator() {
             setInnerText('#balance', incomeAmount - totalExpenses);
         }
         setInnerText('#total-expenses', totalExpenses);
-        innerTextEmptyString('#income-error-field', '#food-error-field', '#rent-error-field', '#clothes-error-field');
+        setInnerTextEmpty('#income-error-field', '#food-error-field', '#rent-error-field', '#clothes-error-field');
     }
 }
 
@@ -56,23 +56,23 @@ function savingsCalculator() {
         setInnerText('#savings-error-field', 'Enter any number');
     } else if (isNaN(incomeAmount) || incomeAmount < 0) {
         setInnerText('#income-error-field', 'Enter any number');
-        innerTextEmptyString('#savings-error-field', '#total-expenses', '#balance', '#error-absorber');
+        setInnerTextEmpty('#savings-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
     } else {
         if (totalBalance < totalSavings) {
             if (totalBalance === 0) {
                 setInnerText('#balance', incomeAmount);
                 setInnerText('#savings-amount', totalSavings);
                 setInnerText('#remaining-balance', incomeAmount - totalSavings);
-                innerTextEmptyString('#income-error-field', '#savings-error-field', '#error-absorber', '#error-absorber');
+                setInnerTextEmpty('#income-error-field', '#savings-error-field', '#error-absorber', '#error-absorber');
             } else {
                 setInnerText('#savings-amount', totalSavings);
                 setInnerText('#remaining-balance', 'Not enough money to save');
-                innerTextEmptyString('#income-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
+                setInnerTextEmpty('#income-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
             }
         } else {
             setInnerText('#savings-amount', totalSavings);
             setInnerText('#remaining-balance', totalBalance - totalSavings);
-            innerTextEmptyString('#savings-error-field', '#income-error-field', '#error-absorber', '#error-absorber');
+            setInnerTextEmpty('#savings-error-field', '#income-error-field', '#error-absorber', '#error-absorber');
         }
     }
 }
