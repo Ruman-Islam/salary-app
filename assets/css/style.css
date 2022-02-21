@@ -28,7 +28,9 @@ img{
     width: 100%;
     border-radius: 10px;
 }
-
+h1 {
+    font-size: 20px;
+}
 h3{
     margin: 10px;
 }
@@ -141,6 +143,9 @@ input:focus {
 Responsive For Desktop Version .........
 ...................................... */
 @media (min-width: 920px) {
+    .header h1 {
+     font-size: 30px;   
+    }
     .container .content-left{
         flex-basis: 60%;
         margin-right: 50px;
