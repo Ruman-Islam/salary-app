@@ -84,6 +84,7 @@ function expenseCalculator() {
 
 //.... Savings Calculation...... //
 function savingsCalculator() {
+    expenseCalculator();
     const incomeAmount = parseBlender('#income-input');
     const savingsAmount = parseBlender('#savings-input');
     const totalBalance = parseFloat(balance.innerText);   // Directly captured from dom //
