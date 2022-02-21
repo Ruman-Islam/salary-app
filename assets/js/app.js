@@ -1,9 +1,24 @@
 //.. Utility functions Start ..//
 
-// parseFloat blending function //
+// Input field validation using regular expression //
+function inputValidator(e) {
+    const regEx = /[^0-9.]/gi;
+    if (regEx.test(e.value)) {
+        e.value = (e.value).replace(regEx, '');
+    }
+}
+/* ..................................*/
+/* ..................................*/
+
+// parseFloat blending //
 function parseBlender(id) {
     const inputField = document.querySelector(id);
-    return parseFloat(inputField.value);
+    const regEx = /[^0-9.]/gi;
+    if (regEx.test(inputField.value)) {
+        return '';
+    } else {
+        return parseFloat(inputField.value);
+    }
 }
 /* ..................................*/
 /* ..................................*/
@@ -34,39 +49,32 @@ function expenseCalculator() {
     const foodAmount = parseBlender('#food-input');
     const rentAmount = parseBlender('#rent-input');
     const clothesAmount = parseBlender('#clothes-input');
-    if (isNaN(incomeAmount) || incomeAmount < 0) {
-        if (incomeAmount < 0) {
-            setInnerText('#income-error-field', 'Negative number');
-        } else {  // validation
+    switch (true) {
+        case (isNaN(incomeAmount)):
             setInnerText('#income-error-field', 'Invalid input');
-        }
-    } else if (isNaN(foodAmount) || foodAmount < 0) {
-        if (foodAmount < 0) {
-            setInnerText('#food-error-field', 'Negative number');
-        } else {  // validation
+            setInnerTextEmpty('#error-absorber', '#food-error-field', '#rent-error-field', '#clothes-error-field');
+            break;
+        case (isNaN(foodAmount)):
             setInnerText('#food-error-field', 'Invalid input');
-        }
-    } else if (isNaN(rentAmount) || rentAmount < 0) {
-        if (rentAmount < 0) {
-            setInnerText('#rent-error-field', 'Negative number');
-        } else {  // validation
+            setInnerTextEmpty('#income-error-field', '#error-absorber', '#rent-error-field', '#clothes-error-field');
+            break;
+        case (isNaN(rentAmount)):
             setInnerText('#rent-error-field', 'Invalid input');
-        }
-    } else if (isNaN(clothesAmount) || clothesAmount < 0) {
-        if (clothesAmount < 0) {
-            setInnerText('#clothes-error-field', 'Negative number');
-        } else {  // validation
+            setInnerTextEmpty('#income-error-field', '#food-error-field', '#error-absorber', '#clothes-error-field');
+            break;
+        case (isNaN(clothesAmount)):
             setInnerText('#clothes-error-field', 'Invalid input');
-        }
-    } else {
-        const totalExpenses = foodAmount + rentAmount + clothesAmount;
-        if (totalExpenses > incomeAmount) {
-            setInnerText('#balance', 'Over expenses');
-        } else {  // validation
-            setInnerText('#balance', incomeAmount - totalExpenses);
-        }
-        setInnerText('#total-expenses', totalExpenses);
-        setInnerTextEmpty('#income-error-field', '#food-error-field', '#rent-error-field', '#clothes-error-field');
+            setInnerTextEmpty('#income-error-field', '#food-error-field', '#rent-error-field', '#error-absorber');
+            break;
+        default:
+            const totalExpenses = foodAmount + rentAmount + clothesAmount;
+            if (totalExpenses > incomeAmount) {
+                setInnerText('#balance', 'Over expenses');
+            } else {  // validation
+                setInnerText('#balance', incomeAmount - totalExpenses);
+            }
+            setInnerText('#total-expenses', totalExpenses);
+            setInnerTextEmpty('#income-error-field', '#food-error-field', '#rent-error-field', '#clothes-error-field');
     }
 }
 /* .......................................................................*/
@@ -80,20 +88,11 @@ function savingsCalculator() {
     const savingsAmount = parseBlender('#savings-input');
     const totalBalance = parseFloat(balance.innerText);   // Directly captured from dom //
     const totalSavings = incomeAmount * (savingsAmount / 100);
-    if (isNaN(savingsAmount) || savingsAmount < 0) {
-        if (savingsAmount < 0) {
-            setInnerText('#savings-error-field', 'Negative number');
-        } else {  // validation
-            setInnerText('#savings-error-field', 'Invalid input');
-        }
-    } else if (isNaN(incomeAmount) || incomeAmount < 0) {
-        if (incomeAmount < 0) {
-            setInnerText('#income-error-field', 'Negative number');
-            setInnerTextEmpty('#savings-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
-        } else {  // validation
-            setInnerText('#income-error-field', 'Invalid input');
-            setInnerTextEmpty('#savings-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
-        }
+    if (isNaN(savingsAmount)) {  // validation
+        setInnerText('#savings-error-field', 'Invalid input');
+    } else if (isNaN(incomeAmount)) {  // validation
+        setInnerText('#income-error-field', 'Invalid input');
+        setInnerTextEmpty('#savings-error-field', '#error-absorber', '#error-absorber', '#error-absorber');
     } else {
         if (totalBalance < totalSavings) {
             if (totalBalance === 0) {  // validation
@@ -120,3 +119,5 @@ function savingsCalculator() {
 /* .......................................................................*/
 /* .......................................................................*/
 // ..............Thank You................ //
+
+//  Finally there are no bugs 
